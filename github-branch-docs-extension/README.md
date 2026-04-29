@@ -49,7 +49,7 @@ On first install, the **Settings** page opens automatically. Enter:
 2. Click the **Branch Docs** extension icon
 3. The popup detects the repo and shows the branch count
 4. Enter your **Groq API Key** (if not already saved)
-5. Choose a **model** (Llama 3 70B recommended)
+5. Choose a **model** (llama-3.1-8b-instant recommended)
 6. Click **Start Documentation**
 7. Watch the progress log as each branch is documented
 8. A ZIP file downloads automatically when done
@@ -83,11 +83,12 @@ Each `branch-summary.md` contains:
 
 | Model | Free Tier RPM | Recommended Delay |
 |-------|--------------|-------------------|
-| Llama 3 – 8B | 30 RPM | 2000ms |
-| Llama 3 – 70B | 30 RPM | 2000ms |
-| Mixtral 8×7B | 30 RPM | 2000ms |
+| llama-3.1-8b-instant | 30 RPM | 2000ms |
+| llama-3.3-70b-versatile | 30 RPM | 2500ms |
+| llama-4-scout-17b | 30 RPM | 2000ms |
+| mixtral-8x7b-32768 | 30 RPM | 2500ms |
 
-The default delay is **1400ms** between requests. Adjust in Settings → "Request Delay" if you hit `429` errors.
+The default delay is **2500ms** between requests. Adjust in Settings → "Request Delay" if you hit `429` errors.
 
 ---
 
