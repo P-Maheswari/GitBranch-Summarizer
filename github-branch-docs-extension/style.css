@@ -1,0 +1,367 @@
+/* ─── Reset & Tokens ─────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Syne:wght@400;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #0d0f14;
+  --surface:   #151820;
+  --surface2:  #1c2030;
+  --border:    #252a3a;
+  --border2:   #2e3550;
+  --accent:    #4ade80;
+  --accent2:   #22c55e;
+  --accent-dim:#1a3d28;
+  --text:      #e2e8f0;
+  --text-sub:  #7a8299;
+  --text-dim:  #4a5168;
+  --danger:    #f87171;
+  --danger-bg: #2d1515;
+  --mono:      'JetBrains Mono', monospace;
+  --sans:      'Syne', sans-serif;
+  --radius:    10px;
+  --radius-sm: 6px;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  width: 360px;
+  min-height: 200px;
+  overflow-x: hidden;
+}
+
+/* ─── Shell ──────────────────────────────────────────────────────────────── */
+.shell {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.3px;
+  color: var(--accent);
+}
+
+.logo svg { flex-shrink: 0; color: var(--accent); }
+
+.options-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-sub);
+  padding: 5px 7px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: border-color 0.15s, color 0.15s;
+}
+.options-btn:hover { border-color: var(--border2); color: var(--text); }
+
+/* ─── Repo Card ───────────────────────────────────────────────────────────── */
+.repo-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 11px 13px;
+}
+
+.repo-card__icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-sub);
+  flex-shrink: 0;
+}
+
+.repo-card__info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.repo-card__name {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.repo-card__sub {
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+.repo-card__badge {
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 20px;
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ─── Key Section ─────────────────────────────────────────────────────────── */
+.key-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.field { display: flex; flex-direction: column; gap: 5px; }
+
+.field__label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-sub);
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.field__optional {
+  font-weight: 400;
+  text-transform: none;
+  color: var(--text-dim);
+  letter-spacing: 0;
+}
+
+.field__row {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.15s;
+}
+
+.field__row:focus-within { border-color: var(--accent); }
+
+.field__input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text);
+  padding: 8px 10px;
+  min-width: 0;
+}
+
+.field__input::placeholder { color: var(--text-dim); }
+
+.field__eye {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  padding: 0 9px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s;
+  height: 100%;
+}
+
+.field__eye:hover { color: var(--text-sub); }
+
+/* Model select */
+.model-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.model-row .field__label { white-space: nowrap; flex-shrink: 0; }
+
+.model-select {
+  flex: 1;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 11.5px;
+  padding: 7px 9px;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  transition: border-color 0.15s;
+}
+
+.model-select:focus { border-color: var(--accent); }
+.model-select option { background: var(--surface2); }
+
+/* ─── Progress ────────────────────────────────────────────────────────────── */
+.progress-area {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-label {
+  font-size: 12px;
+  color: var(--text-sub);
+}
+
+.progress-pct {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.progress-track {
+  height: 5px;
+  background: var(--surface2);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent2), var(--accent));
+  border-radius: 99px;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-log {
+  max-height: 90px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border2) transparent;
+}
+
+.log-entry {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--text-dim);
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  animation: slideIn 0.2s ease;
+}
+
+.log-entry.ok  { color: var(--accent2); }
+.log-entry.err { color: var(--danger); }
+.log-entry.info{ color: var(--text-sub); }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.log-dot {
+  margin-top: 4px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* ─── Error Banner ────────────────────────────────────────────────────────── */
+.error-banner {
+  background: var(--danger-bg);
+  border: 1px solid rgba(248, 113, 113, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 9px 12px;
+  font-size: 12px;
+  color: var(--danger);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+}
+
+.error-banner svg { flex-shrink: 0; margin-top: 1px; }
+
+/* ─── CTA Button ──────────────────────────────────────────────────────────── */
+.cta {
+  width: 100%;
+  padding: 12px;
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  color: #0a1a10;
+  font-family: var(--sans);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.15s, transform 0.1s, opacity 0.15s;
+}
+
+.cta:hover:not(:disabled) { background: var(--accent2); transform: translateY(-1px); }
+.cta:active:not(:disabled){ transform: translateY(0); }
+.cta:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.cta.running { background: var(--surface2); color: var(--text-sub); border: 1px solid var(--border2); }
+.cta.done    { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(74,222,128,0.2); }
+
+/* ─── Footer hint ─────────────────────────────────────────────────────────── */
+.footer-hint {
+  text-align: center;
+  font-size: 10.5px;
+  color: var(--text-dim);
+}
