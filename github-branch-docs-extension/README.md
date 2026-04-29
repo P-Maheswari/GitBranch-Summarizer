@@ -88,7 +88,6 @@ Each `branch-summary.md` contains:
 | llama-4-scout-17b | 30 RPM | 2000ms |
 | mixtral-8x7b-32768 | 30 RPM | 2500ms |
 
-The default delay is **2500ms** between requests. Adjust in Settings → "Request Delay" if you hit `429` errors.
 
 ---
 
